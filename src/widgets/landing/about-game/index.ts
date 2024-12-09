@@ -1,0 +1,1 @@
+export { AboutGame } from "./components/about-game.tsx";

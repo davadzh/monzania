@@ -1,0 +1,1 @@
+export { ClosedAccessWidget } from "./components/closed-access-widget.tsx";

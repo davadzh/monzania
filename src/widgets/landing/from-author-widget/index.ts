@@ -1,0 +1,1 @@
+export { FromAuthorWidget } from "./components/from-author-widget.tsx";

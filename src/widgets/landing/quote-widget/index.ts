@@ -1,0 +1,1 @@
+export { QuoteWidget } from "./components/quote-widget.tsx";

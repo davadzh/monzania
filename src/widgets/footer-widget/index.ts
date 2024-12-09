@@ -1,0 +1,1 @@
+export { FooterWidget } from "./components/footer-widget.tsx";

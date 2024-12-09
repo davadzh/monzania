@@ -1,0 +1,1 @@
+export { ContactsBlockWidget } from "./components/contacts-block-widget.tsx";
