@@ -4,10 +4,14 @@ import { LandingSection } from "@entities/landing/components/landing-section.tsx
 import { LandingSectionCard } from "@entities/landing/components/landing-section-card.tsx";
 import { QuoteInfo } from "@widgets/landing/quote-widget/components/quote-info.tsx";
 import { LandingSectionHeightTypeEnum } from "@entities/landing";
+import { useIsMobile } from "@shared/lib/hooks/use-is-mobile.ts";
 
 export const QuoteWidget = () => {
+  const {isMobile} = useIsMobile();
+  const sectionHeightType = isMobile ? LandingSectionHeightTypeEnum.MAX_CONTENT : LandingSectionHeightTypeEnum.FULL;
+
   return (
-    <LandingSection heightType={LandingSectionHeightTypeEnum.ALMOST_FULL}>
+    <LandingSection heightType={sectionHeightType}>
       <LandingSectionCard>
         <QuoteWidgetStyled>
           <QuoteInfo/>

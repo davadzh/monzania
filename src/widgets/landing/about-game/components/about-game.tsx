@@ -9,12 +9,15 @@ import CarouselImagePhoto3 from "/images/carousel-photo-3.png";
 import CarouselImagePhoto4 from "/images/carousel-photo-4.png";
 import CarouselImagePhoto5 from "/images/carousel-photo-5.png";
 import CarouselImagePhoto6 from "/images/carousel-photo-6.png";
-import CarouselImagePhoto7 from "/images/carousel-photo-7.png";
 import { LandingSectionHeightTypeEnum } from "@entities/landing";
+import { useIsMobile } from "@shared/lib/hooks/use-is-mobile.ts";
 
 export const AboutGame = () => {
+  const {isMobile} = useIsMobile();
+  const sectionHeightType = isMobile ? LandingSectionHeightTypeEnum.MAX_CONTENT : LandingSectionHeightTypeEnum.FULL;
+
   return (
-    <LandingSection heightType={LandingSectionHeightTypeEnum.ALMOST_FULL}>
+    <LandingSection heightType={sectionHeightType}>
       <LandingSectionCard>
         <AboutGameStyled>
           <Carousel imageSrcList={[
@@ -24,7 +27,6 @@ export const AboutGame = () => {
             CarouselImagePhoto4,
             CarouselImagePhoto5,
             CarouselImagePhoto6,
-            CarouselImagePhoto7,
           ]} />
           <AboutGameInfo />
         </AboutGameStyled>

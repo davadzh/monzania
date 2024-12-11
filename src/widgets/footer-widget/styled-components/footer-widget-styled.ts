@@ -1,3 +1,4 @@
+import { Breakpoints } from "@shared/constants/breakpoints";
 import { styled } from "goober";
 
 export const FooterWidgetStyled = styled('div')`
@@ -16,5 +17,20 @@ export const FooterWidgetStyled = styled('div')`
     letter-spacing: -0.1px;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    position: relative;
+    margin: 16px 10px 15px 10px;
+    align-items: flex-start;
+    
+    & > span {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      text-align: center;
+    }
   }
 `;

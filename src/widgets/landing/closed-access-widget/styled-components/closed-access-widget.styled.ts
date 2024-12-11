@@ -1,3 +1,4 @@
+import { Breakpoints } from "@shared/constants/breakpoints";
 import { styled } from "goober";
 
 export const ClosedAccessWidgetStyled = styled('div')`
@@ -6,8 +7,8 @@ export const ClosedAccessWidgetStyled = styled('div')`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  height: calc(100vh - 88px);
   min-height: 600px;
-  height: calc(100% - 80px);
   width: 100%;
   margin: 40px;
   box-sizing: border-box;
@@ -47,5 +48,29 @@ export const ClosedAccessWidgetStyled = styled('div')`
     left: 50%;
     transform: translateX(-50%);
     width: 70%;
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    margin: 10px;
+    height: 620px;
+
+    & > div {
+      &:nth-child(1) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+      &:nth-child(2) {
+        margin-bottom: 24px;
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
+
+    & > img {
+      position: relative;
+      margin-top: 107px;
+      width: 100%;
+    }
   }
 `;

@@ -2,8 +2,11 @@ import { FooterLinksStyled } from "@widgets/footer-widget/styled-components/foot
 import { FooterLinkList } from "@widgets/footer-widget/constants/footer-link-list.ts";
 
 import VerticalDividerIcon from "@vectors/footer-vertical-divide-icon.svg?react";
+import { useIsMobile } from "@shared/lib/hooks/use-is-mobile.ts";
 
 export const FooterLinks = () => {
+  const { isMobile } = useIsMobile();
+
   const onLinkClick = (e: Event) => {
     e.preventDefault();
   }
@@ -17,7 +20,7 @@ export const FooterLinks = () => {
         }
         return <>
           {linkElement}
-          <VerticalDividerIcon/>
+          {!isMobile && <VerticalDividerIcon/>}
         </>
       })}
     </FooterLinksStyled>

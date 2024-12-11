@@ -1,3 +1,4 @@
+import { Breakpoints } from "@shared/constants/breakpoints";
 import { styled } from "goober";
 
 export const FooterLinksStyled = styled('div')`
@@ -7,6 +8,7 @@ export const FooterLinksStyled = styled('div')`
   display: flex;
   flex-direction: row;
   column-gap: 8px;
+  align-items: center;
   
   & > a {
     color: rgba(255, 255, 255, 0.6);
@@ -19,9 +21,20 @@ export const FooterLinksStyled = styled('div')`
     text-decoration: none;
     cursor: not-allowed;
     transition: 0.2s ease;
+    width: max-content;
     
     &:hover {
       opacity: 0.7;
     }
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    position: relative;
+    left: 0;
+    transform: translateX(0);
+    flex-direction: column;
+    row-gap: 12px;
+    margin-bottom: 32px;
+    align-items: flex-start;
   }
 `;

@@ -1,4 +1,5 @@
 import { styled } from "goober";
+import { Breakpoints } from "@shared/constants/breakpoints.ts";
 
 export const QuoteInfoStyled = styled('div')`
   display: flex;
@@ -25,8 +26,8 @@ export const QuoteInfoStyled = styled('div')`
     
     &:nth-child(2) {
       margin-top: 24px;
-      font-size: 18px;
-      line-height: 24px;
+      font-size: 24px;
+      line-height: 31px;
       font-weight: 500;
       text-align: left;
       text-underline-position: from-font;
@@ -45,6 +46,16 @@ export const QuoteInfoStyled = styled('div')`
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
       color: rgba(0, 0, 0, 1);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 8px;
+      transition: opacity 0.2s ease;
+      cursor: not-allowed;
+      
+      &:hover {
+        opacity: 0.7;
+      }
     }
     
     &:nth-child(4) {
@@ -56,6 +67,37 @@ export const QuoteInfoStyled = styled('div')`
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
       color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    border-radius: 12px;
+    padding: 10px 10px 24px 10px;
+
+    & > div {
+      &:nth-child(1) {
+        height: 43px;
+        width: 47px;
+        font-size: 140px;
+        line-height: 98px;
+      }
+
+      &:nth-child(2) {
+        margin-top: 16px;
+        font-size: 17px;
+        line-height: 22px;
+      }
+
+      &:nth-child(3) {
+        margin-top: 40px;
+        font-size: 17px;
+        line-height: 17px;
+      }
+
+      &:nth-child(4) {
+        font-size: 12px;
+        line-height: 15px;
+      }
     }
   }
 `;

@@ -1,4 +1,5 @@
 import { styled } from "goober";
+import { Breakpoints } from "@shared/constants/breakpoints.ts";
 
 export const AboutGameInfoStyled = styled('div')`
   display: flex;
@@ -32,7 +33,6 @@ export const AboutGameInfoStyled = styled('div')`
 
     &:nth-child(3) {
       margin-top: 24px;
-      margin-bottom: 32px;
       font-size: 16px;
       font-weight: 500;
       line-height: 24px;
@@ -42,8 +42,36 @@ export const AboutGameInfoStyled = styled('div')`
       color: rgba(0, 0, 0, 0.4);
     }
   }
-
+  
   & > button {
-    margin-top: ;
+    margin-top: 32px;
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    max-width: none;
+
+    & > div {
+      &:nth-child(1) {
+        margin-top: 0;
+        font-size: 10px;
+        line-height: 11px;
+      }
+
+      &:nth-child(2) {
+        margin-top: 8px;
+        font-size: 24px;
+        line-height: 26px;
+      }
+
+      &:nth-child(3) {
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+
+    & > button {
+      margin-top: 24px;
+    }
   }
 `;

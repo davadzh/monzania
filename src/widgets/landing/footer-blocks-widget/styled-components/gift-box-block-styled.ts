@@ -1,4 +1,5 @@
 import { styled } from "goober";
+import { Breakpoints } from "@shared/constants/breakpoints.ts";
 
 export const GiftBoxBlockStyled = styled('div')`
   position: relative;
@@ -32,5 +33,23 @@ export const GiftBoxBlockStyled = styled('div')`
     position: absolute;
     left: 40px;
     bottom: 40px;
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    & > div {
+      padding: 16px 16px 0 16px;
+      font-size: 24px;
+      line-height: 26px;
+    }
+    
+    & > img {
+      position: relative;
+    }
+
+    & > button {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+    }
   }
 `;

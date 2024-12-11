@@ -3,28 +3,16 @@ import { LandingSectionHeightTypeEnum } from "@entities/landing/enums/landing-se
 
 export const LandingSectionStyled = styled('div')<{_heightType: LandingSectionHeightTypeEnum}>`
   width: 100vw;
-  height: ${props => {
-    const {_heightType} = props;
-    switch (_heightType) {
-      case LandingSectionHeightTypeEnum.FULL:
-        return "100vh";
-      case LandingSectionHeightTypeEnum.ALMOST_FULL:
-        return "calc(100vh - 16px)";
-      case LandingSectionHeightTypeEnum.MAX_CONTENT:
-        return 'max-content';
-    }
-  }};
   min-height: ${props => {
     const {_heightType} = props;
     switch (_heightType) {
       case LandingSectionHeightTypeEnum.FULL:
-      case LandingSectionHeightTypeEnum.ALMOST_FULL:
-        return "680px";
+        return "100vh";
       case LandingSectionHeightTypeEnum.MAX_CONTENT:
-        return '0';
+        return 'max-content';
     }
   }};
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   column-gap: 8px;
 `;

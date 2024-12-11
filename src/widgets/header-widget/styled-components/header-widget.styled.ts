@@ -1,4 +1,5 @@
 import { styled } from "goober";
+import { Breakpoints } from "@shared/constants/breakpoints.ts";
 
 export const HeaderWidgetStyled = styled('div')`
   position: absolute;
@@ -13,9 +14,34 @@ export const HeaderWidgetStyled = styled('div')`
   justify-content: center;
   align-items: center;
   
-  & > svg {
-    &:last-child {
-      margin-left: auto;
+  & > span {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 8px;
+    
+    & > svg {
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+      
+      &:first-child {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @media (max-width: ${Breakpoints.MOBILE}px) {
+    padding: 10px;
+
+    & > svg {
+      &:first-child {
+        width: 28px;
+        height: 28px;
+      }
     }
   }
 `;
