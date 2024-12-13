@@ -4,19 +4,41 @@ import { HeaderLinkList } from "@widgets/header-widget/constants/header-link-lis
 import CircleDividerIcon from "@vectors/header-cirlce-divider-icon.svg?react";
 import ExpandIcon from "@vectors/expand-icon.svg?react";
 import { ExpandingMenuItemStyled } from "@widgets/header-widget/styled-components/expanding-menu-item.styled.ts";
+import { HeaderLinkType } from "@widgets/header-widget/types/header-link.type.ts";
+import { useAppContext } from "@entities/app/contexts/app-context.tsx";
+import { useState } from "preact/hooks";
+import { BuyDropdown } from "@widgets/header-widget/components/buy-dropdown.tsx";
 
 export const HeaderPages = () => {
+  const { setIsSoonModalOpened } = useAppContext();
+
+  const [isBuyDropdownOpened, setIsBuyDropdownOpened] = useState(false);
+
+  const onMenuElementClick = (menuItem: HeaderLinkType) => {
+    if (menuItem.link === "open-popup") {
+      setIsSoonModalOpened(true);
+      return;
+    }
+  }
+
   return (
     <HeaderPagesStyled>
-      {HeaderLinkList.map((fl, idx) => {
-        const linkElement = <button>{fl.title}</button>
+      {HeaderLinkList.map((menuItem, idx) => {
+        const linkElement = <button onClick={() => onMenuElementClick(menuItem)}>{menuItem.title}</button>
 
-        if (fl.title === "Купить") {
+        if (menuItem.title === "Купить") {
           return (
-            <ExpandingMenuItemStyled>
-              {linkElement}
-              <ExpandIcon />
-            </ExpandingMenuItemStyled>
+            <>
+              <ExpandingMenuItemStyled onClick={() => setIsBuyDropdownOpened(true)}>
+                {linkElement}
+                <ExpandIcon/>
+
+                <BuyDropdown isOpened={isBuyDropdownOpened}
+                             setIsOpened={setIsBuyDropdownOpened}
+                             items={menuItem.items}/>
+              </ExpandingMenuItemStyled>
+              <CircleDividerIcon/>
+            </>
           )
         }
 

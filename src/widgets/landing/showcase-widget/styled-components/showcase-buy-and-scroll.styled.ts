@@ -11,24 +11,6 @@ export const ShowcaseBuyAndScrollStyled = styled('div')`
   align-items: center;
   row-gap: 40px;
 
-  & > button {
-    border: none;
-    outline: none;
-    //cursor: pointer;
-    cursor: not-allowed;
-    padding: 14px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 14px;
-    letter-spacing: -0.5px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: rgba(0, 0, 0, 1);
-    background: rgba(255, 255, 255, 1);
-    border-radius: 1000px;
-  }
-
   & > div {
     display: flex;
     flex-direction: column;

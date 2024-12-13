@@ -1,0 +1,1 @@
+export { MiniCartWidget } from "./components/mini-cart-widget.tsx";

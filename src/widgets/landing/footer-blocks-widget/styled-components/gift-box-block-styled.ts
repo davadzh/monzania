@@ -8,7 +8,15 @@ export const GiftBoxBlockStyled = styled('div')`
   background-size: contain;
   width: 100%;
   height: 100%;
-  background: linear-gradient(270deg, #F1DA60 0%, #F5DC5D 28.64%, #E3C845 62.45%, #CEB439 84.05%, #C4AB36 100%);
+  
+  & > span {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, rgba(105, 141, 155, 0) 68.31%, #698D9B 90.56%);
+  }
 
   & > div {
     padding: 40px;
@@ -19,7 +27,9 @@ export const GiftBoxBlockStyled = styled('div')`
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    z-index: 2;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
   & > img {
@@ -33,17 +43,16 @@ export const GiftBoxBlockStyled = styled('div')`
     position: absolute;
     left: 40px;
     bottom: 40px;
+    z-index: 2;
   }
 
   @media (max-width: ${Breakpoints.MOBILE}px) {
+    min-height: 320px;
+    
     & > div {
       padding: 16px 16px 0 16px;
       font-size: 24px;
       line-height: 26px;
-    }
-    
-    & > img {
-      position: relative;
     }
 
     & > button {

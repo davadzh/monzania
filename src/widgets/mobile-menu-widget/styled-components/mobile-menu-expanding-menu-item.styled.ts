@@ -32,7 +32,11 @@ export const MobileMenuExpandingMenuItemStyled = styled('div')<{_isExpanded: boo
     flex-direction: column;
     row-gap: 12px;
     
-    & > div {
+    & > button {
+      padding: 0;
+      border: 0;
+      outline: none;
+      background: none;
       font-size: 17px;
       font-weight: 500;
       line-height: 17px;
@@ -40,6 +44,14 @@ export const MobileMenuExpandingMenuItemStyled = styled('div')<{_isExpanded: boo
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
       color: rgba(0, 0, 0, 0.6);
+      
+      &:disabled {
+        color: rgba(0, 0, 0, 0.3);
+      }
+      
+      &:not(:disabled):hover {
+        color: rgba(33, 195, 177, 1);
+      }
     }
   }
 `;

@@ -8,6 +8,7 @@ export const QuoteInfoStyled = styled('div')`
   background: rgba(232, 249, 244, 1);
   border-radius: 20px;
   padding: 72px 40px 40px 40px;
+  width: 50%;
   
   & > div {
     &:nth-child(1) {
@@ -36,6 +37,8 @@ export const QuoteInfoStyled = styled('div')`
     }
     
     &:nth-child(3) {
+      width: max-content;
+      cursor: pointer;
       margin-top: auto;
       font-size: 24px;
       font-weight: 700;
@@ -51,7 +54,6 @@ export const QuoteInfoStyled = styled('div')`
       align-items: center;
       column-gap: 8px;
       transition: opacity 0.2s ease;
-      cursor: not-allowed;
       
       &:hover {
         opacity: 0.7;
@@ -73,6 +75,7 @@ export const QuoteInfoStyled = styled('div')`
   @media (max-width: ${Breakpoints.MOBILE}px) {
     border-radius: 12px;
     padding: 10px 10px 24px 10px;
+    width: unset;
 
     & > div {
       &:nth-child(1) {

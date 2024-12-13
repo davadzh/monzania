@@ -47,7 +47,7 @@ export const ClosedAccessWidgetStyled = styled('div')`
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%;
+    width: 100%;
   }
 
   @media (max-width: ${Breakpoints.MOBILE}px) {

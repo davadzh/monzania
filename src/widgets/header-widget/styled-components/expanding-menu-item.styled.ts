@@ -5,14 +5,10 @@ export const ExpandingMenuItemStyled = styled('div')`
   flex-direction: row;
   align-items: center;
   column-gap: 4px;
-  cursor: not-allowed;
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.7;
-  }
+  position: relative;
   
   & > button {
+    cursor: pointer;
     padding: 0;
     background: none;
     outline: none;
@@ -24,6 +20,10 @@ export const ExpandingMenuItemStyled = styled('div')`
     text-decoration-skip-ink: none;
     color: rgba(255, 255, 255, 1);
     text-align: center;
-    cursor: not-allowed;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 0.7;
+    }
   }
 `;

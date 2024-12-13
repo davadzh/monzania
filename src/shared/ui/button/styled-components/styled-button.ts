@@ -4,8 +4,7 @@ import { ButtonVariant } from "@shared/ui/button/types/button-variant.ts";
 export const StyledButton = styled('button')<{_variant: ButtonVariant}>`
   border: none;
   outline: none;
-  //cursor: pointer;
-  cursor: not-allowed;
+  cursor: pointer;
   padding: 14px 20px;
   font-size: 14px;
   font-weight: 600;
@@ -22,5 +21,9 @@ export const StyledButton = styled('button')<{_variant: ButtonVariant}>`
   
   &:hover {
     opacity: 0.7;
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
   }
 `;

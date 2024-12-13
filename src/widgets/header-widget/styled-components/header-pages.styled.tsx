@@ -19,7 +19,7 @@ export const HeaderPagesStyled = styled('div')`
     text-decoration-skip-ink: none;
     color: rgba(255, 255, 255, 1);
     text-align: center;
-    cursor: not-allowed;
+    cursor: pointer;
     transition: opacity 0.2s ease;
     
     &:hover {

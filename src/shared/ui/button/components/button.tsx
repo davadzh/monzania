@@ -5,13 +5,15 @@ import { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   variant: ButtonVariant;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const Button = (props: ButtonProps) => {
-  const { children, variant } = props;
+  const { children, variant, onClick, disabled } = props;
 
   return (
-    <StyledButton _variant={variant}>
+    <StyledButton _variant={variant} onClick={onClick} disabled={disabled}>
       {children}
     </StyledButton>
   );

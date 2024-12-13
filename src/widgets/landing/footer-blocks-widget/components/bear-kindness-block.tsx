@@ -5,8 +5,11 @@ import {
 import BearBigIcon from "@vectors/bear-big-icon.svg?react";
 import { Button } from "@shared/ui/button";
 import { useIsMobile } from "@shared/lib/hooks/use-is-mobile.ts";
+import { useAppContext } from "@entities/app/contexts/app-context.tsx";
 
 export const BearKindnessBlock = () => {
+  const { setIsSoonModalOpened } = useAppContext();
+
   const { isMobile } = useIsMobile();
   const texts = isMobile ? (
     <>
@@ -24,7 +27,7 @@ export const BearKindnessBlock = () => {
     <BearKindnessBlockStyled>
       <BearBigIcon />
       {texts}
-      <Button variant={'dark'}>Подробнее</Button>
+      <Button variant={'dark'} onClick={() => setIsSoonModalOpened(true)}>Подробнее</Button>
     </BearKindnessBlockStyled>
   );
 };

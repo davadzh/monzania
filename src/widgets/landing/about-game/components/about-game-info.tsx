@@ -35,6 +35,10 @@ export const AboutGameInfo = () => {
     </div>
   )
 
+  const onClick = () => {
+    window.open("https://drive.google.com/file/d/1d4R_I819kvinxRqObItQYfclLpAWKag8/view?usp=sharing", "_blank");
+  }
+
   return (
     <AboutGameInfoStyled>
       <div>МОНЗАНИЯ</div>
@@ -48,7 +52,7 @@ export const AboutGameInfo = () => {
         </ExpandAboutGameTextStyled>
       )}
 
-      <Button variant={'dark'}>
+      <Button variant={'dark'} onClick={onClick}>
         Инструкция
       </Button>
     </AboutGameInfoStyled>

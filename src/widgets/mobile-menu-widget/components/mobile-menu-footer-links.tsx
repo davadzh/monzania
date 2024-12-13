@@ -4,12 +4,19 @@ import {
 
 import BearBlackIcon from "@vectors/bear-black-icon.svg?react";
 import InstagramBlackIcon from "@vectors/instagram-black-icon.svg?react";
+import { useAppContext } from "@entities/app/contexts/app-context.tsx";
 
 export const MobileMenuFooterLinks = () => {
+  const { setIsSoonModalOpened } = useAppContext();
+
+  const onInstagramOpenClick = () => {
+    window.open("https://instagram.com/mishka.anastasia?igshid=MTNiYzNiMzkwZA==", "_blank");
+  }
+
   return (
     <MobileMenuFooterLinksStyled>
-      <BearBlackIcon />
-      <InstagramBlackIcon />
+      <BearBlackIcon onClick={() => setIsSoonModalOpened(true)} />
+      <InstagramBlackIcon onClick={onInstagramOpenClick} />
     </MobileMenuFooterLinksStyled>
   );
 };

@@ -8,7 +8,7 @@ export const HeaderWidgetStyled = styled('div')`
   width: 100%;
   background: none;
   box-sizing: border-box;
-  padding: 16px 32px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,13 +23,10 @@ export const HeaderWidgetStyled = styled('div')`
     
     & > svg {
       transition: opacity 0.2s ease;
+      cursor: pointer;
 
       &:hover {
         opacity: 0.7;
-      }
-      
-      &:first-child {
-        cursor: not-allowed;
       }
     }
   }

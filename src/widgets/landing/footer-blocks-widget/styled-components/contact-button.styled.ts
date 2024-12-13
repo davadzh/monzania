@@ -9,7 +9,7 @@ export const ContactButtonStyled = styled('button')`
   border-radius: 1000px;
   border: none;
   align-items: center;
-  cursor: not-allowed;
+  cursor: pointer;
   transition: opacity 0.2s ease;
   
   & > div {

@@ -7,7 +7,7 @@ import { useState } from "preact/hooks";
 
 interface MobileMenuExpandingMenuItemProps {
   title: string
-  nestedItems: Array<{ title: string, link: string }>;
+  nestedItems: Array<{ title: string, link: string, disabled?: boolean }>;
 }
 
 export const MobileMenuExpandingMenuItem = (props: MobileMenuExpandingMenuItemProps) => {
@@ -23,9 +23,17 @@ export const MobileMenuExpandingMenuItem = (props: MobileMenuExpandingMenuItemPr
       </div>
 
       {isExpanded && (<span>
-        {nestedItems.map(item => (
-          <div key={item.title}>{item.title}</div>
-        ))}
+        {nestedItems.map(item => {
+          const onClick = () => {
+            if (item.disabled) {
+              return;
+            }
+
+            window.open(item.link, '_blank');
+          }
+
+          return <button key={item.title} onClick={onClick} disabled={item.disabled}>{item.title}</button>
+        })}
       </span>)}
     </MobileMenuExpandingMenuItemStyled>
   );
