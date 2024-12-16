@@ -10,9 +10,10 @@ import GameCardsMobileImageSrc from "/images/game-cards-mobile.png";
 import { LandingSectionHeightTypeEnum } from "@entities/landing";
 import { useIsMobile } from "@shared/lib/hooks/use-is-mobile.ts";
 import { useAppContext } from "@entities/app/contexts/app-context.tsx";
+import { ModalNameEnum } from "@entities/modal/enums/modal-name.enum.ts";
 
 export const ClosedAccessWidget = () => {
-  const {setIsSoonModalOpened} = useAppContext();
+  const {setModal} = useAppContext();
 
   const {isMobile} = useIsMobile();
   const sectionHeightType = isMobile ? LandingSectionHeightTypeEnum.MAX_CONTENT : LandingSectionHeightTypeEnum.FULL;
@@ -25,7 +26,7 @@ export const ClosedAccessWidget = () => {
           <div>Для покупателей</div>
           <div>Закрытый<br/>доступ</div>
 
-          <Button variant={'dark'} onClick={() => setIsSoonModalOpened(true)}>Войти</Button>
+          <Button variant={'dark'} onClick={() => setModal(ModalNameEnum.WELCOME)}>Войти</Button>
 
           <img src={imageSrc} alt="Игровые карточки"/>
         </ClosedAccessWidgetStyled>

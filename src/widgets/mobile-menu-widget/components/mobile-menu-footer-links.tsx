@@ -5,9 +5,10 @@ import {
 import BearBlackIcon from "@vectors/bear-black-icon.svg?react";
 import InstagramBlackIcon from "@vectors/instagram-black-icon.svg?react";
 import { useAppContext } from "@entities/app/contexts/app-context.tsx";
+import { ModalNameEnum } from "@entities/modal/enums/modal-name.enum.ts";
 
 export const MobileMenuFooterLinks = () => {
-  const { setIsSoonModalOpened } = useAppContext();
+  const { setModal } = useAppContext();
 
   const onInstagramOpenClick = () => {
     window.open("https://instagram.com/mishka.anastasia?igshid=MTNiYzNiMzkwZA==", "_blank");
@@ -15,7 +16,7 @@ export const MobileMenuFooterLinks = () => {
 
   return (
     <MobileMenuFooterLinksStyled>
-      <BearBlackIcon onClick={() => setIsSoonModalOpened(true)} />
+      <BearBlackIcon onClick={() => setModal(ModalNameEnum.SOON)} />
       <InstagramBlackIcon onClick={onInstagramOpenClick} />
     </MobileMenuFooterLinksStyled>
   );

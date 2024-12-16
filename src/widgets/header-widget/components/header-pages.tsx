@@ -8,15 +8,16 @@ import { HeaderLinkType } from "@widgets/header-widget/types/header-link.type.ts
 import { useAppContext } from "@entities/app/contexts/app-context.tsx";
 import { useState } from "preact/hooks";
 import { BuyDropdown } from "@widgets/header-widget/components/buy-dropdown.tsx";
+import { ModalNameEnum } from "@entities/modal/enums/modal-name.enum.ts";
 
 export const HeaderPages = () => {
-  const { setIsSoonModalOpened } = useAppContext();
+  const { setModal } = useAppContext();
 
   const [isBuyDropdownOpened, setIsBuyDropdownOpened] = useState(false);
 
   const onMenuElementClick = (menuItem: HeaderLinkType) => {
     if (menuItem.link === "open-popup") {
-      setIsSoonModalOpened(true);
+      setModal(ModalNameEnum.SOON);
       return;
     }
   }

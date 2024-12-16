@@ -1,13 +1,14 @@
 import { createContext } from "preact";
 import { ReactNode, useContext } from "preact/compat";
 import { useState } from "preact/hooks";
+import { ModalNameEnum } from "@entities/modal/enums/modal-name.enum.ts";
 
 interface AppContextType {
   isMobileMenuOpened: boolean;
   setIsMobileMenuOpened: (value: boolean) => void;
 
-  isSoonModalOpened: boolean;
-  setIsSoonModalOpened: (value: boolean) => void;
+  modal: ModalNameEnum | null;
+  setModal: (modalName: ModalNameEnum | null) => void;
 
   isMiniCartOpened: boolean;
   setIsMiniCartOpened: (value: boolean) => void;
@@ -23,15 +24,15 @@ export const AppProvider = (props: AppProviderProps) => {
   const { children } = props;
 
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
-  const [isSoonModalOpened, setIsSoonModalOpened] = useState(false);
+  const [modal, setModal] = useState<ModalNameEnum | null>(null);
   const [isMiniCartOpened, setIsMiniCartOpened] = useState(false);
 
   return (
     <AppContext.Provider value={{
       isMobileMenuOpened,
       setIsMobileMenuOpened,
-      isSoonModalOpened,
-      setIsSoonModalOpened,
+      modal,
+      setModal,
       isMiniCartOpened,
       setIsMiniCartOpened
     }}>
