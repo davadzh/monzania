@@ -19,6 +19,8 @@ export const HeaderPages = () => {
     if (menuItem.link === "open-popup") {
       setModal(ModalNameEnum.SOON);
       return;
+    } else {
+      window.open(menuItem.link, "_blank");
     }
   }
 

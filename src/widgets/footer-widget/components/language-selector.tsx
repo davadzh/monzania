@@ -4,7 +4,7 @@ import { LanguageSelectorStyled } from "@widgets/footer-widget/styled-components
 export const LanguageSelector = () => {
   return (
     <LanguageSelectorStyled>
-      <div>ОАЭ</div>
+      <div>Россия</div>
       <ArrowDownIcon />
     </LanguageSelectorStyled>
   );

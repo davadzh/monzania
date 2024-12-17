@@ -36,7 +36,7 @@ export const AboutGameInfo = () => {
   )
 
   const onClick = () => {
-    window.open("https://drive.google.com/file/d/1d4R_I819kvinxRqObItQYfclLpAWKag8/view?usp=sharing", "_blank");
+    window.open("https://monzania.mishkabooks.com/monzania.pdf", "_blank");
   }
 
   return (

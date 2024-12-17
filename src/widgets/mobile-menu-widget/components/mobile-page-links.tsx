@@ -9,13 +9,13 @@ export const MobilePageLinks = () => {
   const items: Array<HeaderLinkType> = [
     {
       title: "Приключение горошинки",
-      link: "open-popup",
-      disabled: true,
+      link: "https://www.mishkabooks.com/?goroshinka\n",
+      disabled: false,
     },
     {
       title: "Монзания",
-      link: "open-popup",
-      disabled: true,
+      link: "https://monzania.mishkabooks.com",
+      disabled: false,
     },
     {
       title: "Подарочный Набор",
@@ -44,8 +44,8 @@ export const MobilePageLinks = () => {
     },
     {
       title: "Обратная связь",
-      link: "open-popup",
-      disabled: true,
+      link: "https://mishkabooks.com/?contact",
+      disabled: false,
     }
   ]
 
@@ -60,6 +60,13 @@ export const MobilePageLinks = () => {
     if (menuItem.disabled) {
       return;
     }
+
+    if (menuItem.link === "open-popup") {
+      // setModal(ModalNameEnum.SOON);
+      return;
+    }
+
+    window.open(menuItem.link, "_blank");
   }
 
   return (
