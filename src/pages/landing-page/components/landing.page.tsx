@@ -5,7 +5,7 @@ import { LandingPageStyled } from "../styled-components/landing-page.styled";
 import { ClosedAccessWidget } from "@widgets/landing/closed-access-widget";
 import { FromAuthorWidget } from "@widgets/landing/from-author-widget";
 import { FooterBlocksWidget } from "@widgets/landing/footer-blocks-widget";
-import { VideoSectionWidget } from "@widgets/landing/video-section-widget";
+// import { VideoSectionWidget } from "@widgets/landing/video-section-widget";
 
 export const LandingPage = () => {
   return <LandingPageStyled>
@@ -13,7 +13,7 @@ export const LandingPage = () => {
     <AboutGame/>
     <QuoteWidget />
     <ClosedAccessWidget />
-    <VideoSectionWidget />
+    {/*<VideoSectionWidget />*/}
     <FromAuthorWidget />
     <FooterBlocksWidget />
   </LandingPageStyled>

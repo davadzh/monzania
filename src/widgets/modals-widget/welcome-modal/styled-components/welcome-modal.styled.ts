@@ -10,8 +10,8 @@ export const WelcomeModalStyled = styled('div')`
   border-radius: 20px;
   
   & > svg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
   
   & > h3 {

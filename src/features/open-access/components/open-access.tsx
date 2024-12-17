@@ -17,6 +17,7 @@ export const OpenAccess = () => {
   const [password, setPassword] = useState<string>('');
   const [isError, setIsError] = useState<boolean>(false);
 
+  //@ts-ignore
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -32,6 +33,7 @@ export const OpenAccess = () => {
     <OpenAccessStyled onSubmit={onSubmit}>
       <OpenAccessInputContainerStyled>
         <OpenAccessInputStyled type={'text'}
+                               //@ts-ignore
                                onChange={(e) => setPassword(e.target.value)}
                                placeholder={'Пароль'}
                                _hasError={isError}

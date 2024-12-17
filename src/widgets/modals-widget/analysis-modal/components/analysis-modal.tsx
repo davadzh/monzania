@@ -12,9 +12,18 @@ import {
   AnalyticsParagraphGroupStyled
 } from "@widgets/modals-widget/analysis-modal/styled-components/analytics-paragraph-group.styled.ts";
 import { ColorNamePairStyled } from "@widgets/modals-widget/analysis-modal/styled-components/color-name-pair.styled.ts";
+import { Cards } from "@widgets/modals-widget/analysis-modal/constants/cards.ts";
+import { mapColorNameToColor } from "@widgets/modals-widget/analysis-modal/lib/helpers/map-color-name-to-color.ts";
+import { AnalysisTextStyled } from "@widgets/modals-widget/analysis-modal/styled-components/analysis-text.styled.ts";
+import { AnalysisVideoStyled } from "@widgets/modals-widget/analysis-modal/styled-components/analysis-video.styled.ts";
+import { YoutubeButton } from "@widgets/modals-widget/analysis-modal/components/youtube-button.tsx";
+
+import VideoSrc from "/videos/monzania.webm";
+import { useState } from "preact/hooks";
 
 export const AnalysisModal = () => {
   const { modal, setModal } = useAppContext();
+  const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
 
   const closeModal = () => {
     setModal(null);
@@ -23,9 +32,17 @@ export const AnalysisModal = () => {
   return (
     <FullscreenModal isOpen={modal === ModalNameEnum.ANALYSIS} onClose={closeModal}>
       <AnalyticsModalStyled>
-        <div>
-          <h2>Разбор от психолога</h2>
+        <h2>Разбор от психолога</h2>
 
+        <AnalysisVideoStyled _loaded={isVideoLoaded}>
+          <video autoplay muted loop controls={false} playsinline preload={"none"} onLoadedData={() => setIsVideoLoaded(true)}>
+            <source src={VideoSrc} type="video/webm"/>
+          </video>
+
+          <YoutubeButton />
+        </AnalysisVideoStyled>
+
+        <AnalysisTextStyled>
           <p>
             Привет, дорогой друг!<br/><br/>
 
@@ -311,21 +328,31 @@ export const AnalysisModal = () => {
               с окружающими.</p>
           </AnalyticsParagraphGroupStyled>
 
-          <h4>№1. Шура — Любовь</h4>
-          <AnalyticsParagraphGroupStyled _gap={8} _mt={16}>
-            <span>Цвет:</span>
-            <ColorNamePairStyled _color={"rgba(151, 199, 122, 1)"}>
-              <span/>
-              <div>Зеленый</div>
-            </ColorNamePairStyled>
+          {Cards.map(c => (
+            <>
+              <h4>{c.name}</h4>
+              <AnalyticsParagraphGroupStyled _gap={8} _mt={16}>
+                <span>Цвет:</span>
+                <ColorNamePairStyled _color={mapColorNameToColor(c.colorName)}>
+                  <span/>
+                  <div>{c.colorName}</div>
+                </ColorNamePairStyled>
+              </AnalyticsParagraphGroupStyled>
+              <AnalyticsParagraphGroupStyled _gap={8} _mt={16}>
+                <span>Описание:</span>
+                <p>{c.description}</p>
+              </AnalyticsParagraphGroupStyled>
+            </>
+          ))}
+
+          <AnalyticsParagraphGroupStyled _gap={8} _mt={32}>
+            <p>
+              Игра — это не соревнование “хороших” и “плохих” качеств, а путешествие, которое помогает стать
+              внимательнее к себе и другим. Каждый игрок, независимо от количества карт или их цвета, может извлечь
+              что-то ценное из этого опыта.
+            </p>
           </AnalyticsParagraphGroupStyled>
-          <AnalyticsParagraphGroupStyled _gap={8} _mt={16}>
-            <span>Описание:</span>
-            <p>“Любовь” символизирует тепло, заботу и взаимное принятие. Эта карточка напоминает,
-              что любовь делает нас лучше, помогает справляться с трудностями и вдохновляет. Она учит ценить близких и
-              делиться своей добротой.</p>
-          </AnalyticsParagraphGroupStyled>
-        </div>
+        </AnalysisTextStyled>
       </AnalyticsModalStyled>
     </FullscreenModal>
   );
